@@ -1,0 +1,103 @@
+@font-face{
+    font-family: Fluid-Sans;
+    src: url(fonts/FluidSans-Regular.ttf);
+}
+
+body{
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    background: url(images/background-wall.jpg) no-repeat;
+}
+
+body::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
+}
+
+.tab-bar{
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    display: flex;
+    flex-direction: row;
+}
+
+.tabs{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+    font-family: Fluid-Sans, sans-serif;
+    font-size: medium;
+    color: white;
+    list-style-type: none;
+}
+
+.tabs > li >a{
+    text-decoration: none;
+    color: white;
+    transition: color 0.4s ease-in-out;
+}
+
+.tabs > li > a:hover{
+    color: #72BBFF;
+}
+
+#home{
+    color: #72BBFF;
+}
+
+.landing-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(18, 18, 18, 0.88);
+}
+
+.lander-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 210px;
+    height: 195px;
+}
+
+.lander-text > svg{
+    width: 210px;
+    height: 77px;
+}
+
+.subheader{
+    font-family: Fluid-Sans, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    color: white;
+}
+
+.download-button{
+    display: flex;
+    width: 105px;
+    height: 50px;
+    background-color: rgba(114, 187, 255, 0.2);
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #72BBFF;
+    box-sizing: border-box;
+    border-radius: 12px;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.download-button:hover{
+    background-color:  rgba(114, 187, 255, 0.4);
+}
+
+.download-button > a{
+    text-decoration: none;
+    font-family: Fluid-Sans, sans-serif;
+    font-size: 17px;
+    color: #72BBFF;
+}
