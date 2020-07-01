@@ -1,0 +1,85 @@
+@font-face{
+    font-family: Fluid-Sans;
+    src: url(fonts/FluidSans-Regular.ttf);
+}
+
+body{
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    background: #121212;
+}
+
+body::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
+}
+
+.tab-bar{
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    display: flex;
+    flex-direction: row;
+}
+
+.tabs{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+    font-family: Fluid-Sans, sans-serif;
+    font-size: medium;
+    color: white;
+    list-style-type: none;
+}
+
+.tabs > li >a{
+    text-decoration: none;
+    color: white;
+    transition: color 0.4s ease-in-out;
+}
+
+.tabs > li > a:hover{
+    color: #72BBFF;
+}
+
+#downloads{
+    color: #72BBFF;
+}
+
+.downloads-section{
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: Fluid-Sans, sans-serif;
+    color: white;
+}
+
+.downloads-section > h1{
+    color: #72BBFF;
+}
+
+#textbox{
+    border: 3px solid #242424;
+    box-sizing: border-box;
+    border-radius: 16px;
+    transition: background-color 0.4s ease-in-out;
+}
+
+#textbox:hover{
+    background-color: #242424;
+}
+
+#textbox > h2{
+    font-weight: normal;
+    margin: 16px;
+}
+
+#blue{
+    color: #72BBFF;
+}
+
+#rose{
+    color: red;
+}

@@ -1,0 +1,109 @@
+@font-face{
+    font-family: Fluid-Sans;
+    src: url(fonts/FluidSans-Regular.ttf);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+    background: #121212;
+}
+
+body::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
+}
+
+.tab-bar{
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    display: flex;
+    flex-direction: row;
+}
+
+.tabs{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+    font-family: Fluid-Sans, sans-serif;
+    font-size: medium;
+    color: white;
+    list-style-type: none;
+}
+
+.tabs > li >a{
+    text-decoration: none;
+    color: white;
+    transition: color 0.4s ease-in-out;
+}
+
+.tabs > li > a:hover{
+    color: #72BBFF;
+}
+
+#wiki{
+    color: #72BBFF;
+}
+
+.team-section{
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: Fluid-Sans, sans-serif;
+    color: white;
+}
+
+.team-section > h1{
+    color: #72BBFF;
+}
+
+#team-text{
+    border: 3px solid #242424;
+    box-sizing: border-box;
+    border-radius: 16px;
+    transition: background-color 0.4s ease-in-out;
+}
+
+#team-text:hover{
+    background-color: #242424;
+}
+
+#team-text > h2{
+    font-weight: normal;
+    margin: 16px;
+}
+
+#team-text > h2 > span{
+    color: #72BBFF;
+}
+
+.guidelines-section{
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: Fluid-Sans, sans-serif;
+    color: white;
+}
+
+.guidelines-section > h1{
+    color: #72BBFF;
+}
+
+#form-link{
+    margin: 60px;
+    font-family: Fluid-Sans, sans-serif;
+    color: white;
+}
+
+#form-link > h1{
+    font-weight: normal;
+}
+
+#form-link > h1 > a{
+    text-decoration: none;
+    color: #72BBFF;
+}
