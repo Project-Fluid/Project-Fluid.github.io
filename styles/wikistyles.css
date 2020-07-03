@@ -24,10 +24,27 @@ body::-webkit-scrollbar{
     flex-direction: row;
 }
 
+.header{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.menu-icon{
+    visibility: hidden;
+}
+
+.menu-btn{
+    visibility: hidden;
+}
+
 .tabs{
     display: flex;
     flex-direction: row;
     width: 300px;
+    padding: 0;
+    margin: 0;
     justify-content: space-between;
     font-family: Fluid-Sans, sans-serif;
     font-size: medium;
@@ -59,7 +76,7 @@ body::-webkit-scrollbar{
     color: #72BBFF;
     position: absolute;
     margin: 20px;
-    width: 150px;
+    padding: 0 10px 5px 10px;
     border-radius: 10px;
     text-align: center;
     background: #121212;
@@ -97,7 +114,7 @@ body::-webkit-scrollbar{
     color: #72BBFF;
     position: absolute;
     margin: 20px;
-    width: 152px;
+    padding: 0 10px 5px 10px;
     border-radius: 10px;
     text-align: center;
     background: #121212;
@@ -150,7 +167,7 @@ body::-webkit-scrollbar{
     color: #72BBFF;
     position: absolute;
     margin: 20px;
-    width: 170px;
+    padding: 0 10px 5px 10px;
     border-radius: 10px;
     text-align: center;
     background: #121212;
@@ -184,7 +201,7 @@ body::-webkit-scrollbar{
     color: #72BBFF;
     position: absolute;
     margin: 20px;
-    width: 315px;
+    padding: 0 10px 5px 10px;
     border-radius: 10px;
     text-align: center;
     background: #121212;
@@ -225,4 +242,185 @@ body::-webkit-scrollbar{
 #form-link > h1 > a{
     text-decoration: none;
     color: #72BBFF;
+}
+
+/* Media Query */
+
+@media (max-width: 560px){
+
+    .tab-bar{
+        position: relative;
+    }
+
+    .menu-icon{
+        visibility: visible;
+    }
+
+    .menu-btn{
+        visibility: visible;
+    }
+
+    .header li a{
+        display: block;
+        padding: 20px 20px;
+        text-decoration: none;
+    }
+       
+    .header{
+        display: grid;
+        align-content: center;
+    }
+
+    .tab-bar{
+        width: 100%;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+    }
+
+    /* Hamborger menu */
+
+    .header .tabs{
+        display: flex;
+        flex-direction: column;
+        float: right;
+        clear: both;
+        max-height: 0;
+        transition: max-height .2s ease-out;
+        font-size: small;
+        width: 100%;
+    }
+       
+    /* Menu icon */
+       
+    .header .menu-icon{
+        cursor: pointer;
+        display: inline-block;
+        padding: 30px 22px;
+        position: relative;
+        user-select: none;
+    }
+       
+    .header .menu-icon .navicon{
+        background: #fff;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background .2s ease-out;
+        width: 18px;
+    }
+       
+    .header .menu-icon .navicon:before,
+    .header .menu-icon .navicon:after{
+        background: #fff;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+    }
+       
+    .header .menu-icon .navicon:before{
+        top: 5px;
+    }
+       
+    .header .menu-icon .navicon:after{
+        top: -5px;
+    }
+       
+    /* Menu btn */
+       
+    .header .menu-btn{
+        display: none;
+    }
+       
+    .header .menu-btn:checked ~ .tabs{
+        max-height: 340px;
+    }
+       
+    .header .menu-btn:checked ~ .menu-icon .navicon{
+        background: transparent;
+      }
+       
+    .header .menu-btn:checked ~ .menu-icon .navicon:before{
+        transform: rotate(-45deg);
+    }
+       
+    .header .menu-btn:checked ~ .menu-icon .navicon:after{
+        transform: rotate(45deg);
+    }
+       
+    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after{
+        top: 0;
+    }
+
+    .about-section{
+        margin: 20px 20px 0 20px;
+    }
+
+    .about-section > h1{
+        font-size: 30px;
+    }
+
+    #about-text{
+        font-size: 2vh;
+    }
+
+    .team-section{
+        margin: 20px 20px 0 20px;
+    }
+
+    .team-section > h1{
+        font-size: 30px;
+    }
+
+    .profiles{
+        flex-direction: column;
+        margin: 7vh 5vw 3vh 5vw;
+    }
+
+    .profiles > div{
+        margin-bottom: 32px;
+    }
+
+    .profiles > div > img{
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+    }
+
+    .guidelines-section{
+        margin: 20px 20px 0 20px;
+    }
+
+    .guidelines-section > h1{
+        font-size: 30px;
+    }
+
+    #guidelines-text{
+        font-size: 2vh;
+    }
+
+    .requirements-section{
+        margin: 20px 20px 0 20px;
+    }
+
+    .requirements-section > h1{
+        font-size: 30px;
+    }
+
+    #requirements-text{
+        font-size: 2vh;
+    }
+
+    #form-link{
+        margin: 20px 20px 0 20px;
+        text-align: center;
+    }
+
+    #form-link > h1{
+        font-size: 20px;
+    }
 }
