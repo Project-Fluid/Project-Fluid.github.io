@@ -16,6 +16,16 @@ body::-webkit-scrollbar{
     background: transparent;
 }
 
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .tab-bar{
     position: absolute;
     right: 4%;
