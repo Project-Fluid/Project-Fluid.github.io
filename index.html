@@ -2,17 +2,24 @@
 
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
         <link rel="stylesheet" href="styles/styles.css"/>
         <title>Project-Fluid</title>
     </head>
     <body>
         <div class="tab-bar">
-            <ul class="tabs">
-                <li><a href="#" id="home">Home</a></li>
-                <li><a href="downloads.html">Download</a></li>
-                <li><a href="https://t.me/ProjectFluid">Channel</a></li>
-                <li><a href="wiki.html">Wiki</a></li>
-            </ul>
+            <header class="header">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="tabs">
+                    <li><a href="#" id="home">Home</a></li>
+                    <li><a href="downloads.html">Download</a></li>
+                    <li><a href="https://t.me/ProjectFluid">Channel</a></li>
+                    <li><a href="wiki.html">Wiki</a></li>
+                </ul>
+            </header>
         </div>
         <div class="landing-page">
             <div class="lander-text">
@@ -25,9 +32,7 @@
                 
                 <h2 class="subheader">An experience worth the wait!</h2>
     
-                <div class="download-button">
-                    <a href="downloads.html">Download</a>
-                </div>
+                <a href="downloads.html" class="download-button">Download</a>
             </div>
         </div>
     </body>
