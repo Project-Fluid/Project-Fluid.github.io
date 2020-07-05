@@ -8,7 +8,7 @@ body{
     flex-direction: column;
     margin: 0;
     height: 100vh;
-    background: #121212;
+    background: #000000;
 }
 
 body::-webkit-scrollbar{
@@ -27,26 +27,33 @@ body::-webkit-scrollbar{
 }
 
 .tab-bar{
-    position: absolute;
-    right: 4%;
-    top: 4%;
+    position: sticky;
+    top: 0;
+    padding: 26px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    background: rgba(3, 3, 3, 0.4);
 }
 
 .header{
     position: relative;
-    width: 100%;
+    width: auto;
     overflow: hidden;
     z-index: 3;
 }
 
+.branding{
+    width: 50px;
+    height: 18px;
+}
+
 .menu-icon{
-    visibility: hidden;
+    display: none;
 }
 
 .menu-btn{
-    visibility: hidden;
+    display: none;
 }
 
 .tabs{
@@ -76,6 +83,11 @@ body::-webkit-scrollbar{
     color: #72BBFF;
 }
 
+.wiki-body{
+    border-radius: 0 0 30px 30px;
+    background: #121212;
+}
+
 .about-section{
     margin: 100px 60px 0 60px;
     font-family: Fluid-Sans, sans-serif;
@@ -84,12 +96,6 @@ body::-webkit-scrollbar{
 
 .about-section > h1{
     color: #72BBFF;
-    position: absolute;
-    margin: 20px;
-    padding: 0 10px 5px 10px;
-    border-radius: 10px;
-    text-align: center;
-    background: #121212;
 }
 
 #about-text{
@@ -122,12 +128,6 @@ body::-webkit-scrollbar{
 
 .team-section > h1{
     color: #72BBFF;
-    position: absolute;
-    margin: 20px;
-    padding: 0 10px 5px 10px;
-    border-radius: 10px;
-    text-align: center;
-    background: #121212;
 }
 
 #team{
@@ -175,12 +175,6 @@ body::-webkit-scrollbar{
 
 .guidelines-section > h1{
     color: #72BBFF;
-    position: absolute;
-    margin: 20px;
-    padding: 0 10px 5px 10px;
-    border-radius: 10px;
-    text-align: center;
-    background: #121212;
 }
 
 #guidelines-text{
@@ -209,12 +203,6 @@ body::-webkit-scrollbar{
 
 .requirements-section > h1{
     color: #72BBFF;
-    position: absolute;
-    margin: 20px;
-    padding: 0 10px 5px 10px;
-    border-radius: 10px;
-    text-align: center;
-    background: #121212;
 }
 
 #requirements-text{
@@ -240,8 +228,9 @@ body::-webkit-scrollbar{
 }
 
 #form-link{
-    margin: 60px 60px 0 60px;
+    margin: 45px;
     font-family: Fluid-Sans, sans-serif;
+    text-align: center;
     color: white;
 }
 
@@ -254,12 +243,53 @@ body::-webkit-scrollbar{
     color: #72BBFF;
 }
 
+.footer{
+    width: 100%;
+    font-family: Fluid-Sans, sans-serif;
+    color: white;
+}
+
+.footer-holder{
+    margin: 40px 10% 40px 10%;
+}
+
+.footer-holder > svg{
+    width: 65px;
+    height: 25px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.sources-info{
+    display: inline-block;
+    width: 50%;
+}
+
+.sources-info > ul{
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.sources-info > ul > li{
+    padding-top: 10px;
+}
+
+.sources-info > ul > li > a{
+    text-decoration: none;
+    color: #72BBFF;
+}
+
 /* Media Query */
 
 @media (max-width: 560px){
 
-    .tab-bar{
-        position: relative;
+    .branding{
+        display: none;
     }
 
     .menu-icon{
@@ -285,6 +315,7 @@ body::-webkit-scrollbar{
         width: 100%;
         top: 0;
         right: 0;
+        padding: 0%;
         flex-direction: column;
     }
 
@@ -371,11 +402,12 @@ body::-webkit-scrollbar{
     }
 
     .about-section > h1{
-        font-size: 30px;
+        font-size: 25px;
     }
 
     #about-text{
-        font-size: 2vh;
+        font-size: 15px;
+        margin-top: 20px;
     }
 
     .team-section{
@@ -383,7 +415,11 @@ body::-webkit-scrollbar{
     }
 
     .team-section > h1{
-        font-size: 30px;
+        font-size: 25px;
+    }
+
+    #team{
+        margin-top: 20px;
     }
 
     .profiles{
@@ -406,11 +442,12 @@ body::-webkit-scrollbar{
     }
 
     .guidelines-section > h1{
-        font-size: 30px;
+        font-size: 25px;
     }
 
     #guidelines-text{
-        font-size: 2vh;
+        font-size: 15px;
+        margin-top: 20px;
     }
 
     .requirements-section{
@@ -418,19 +455,33 @@ body::-webkit-scrollbar{
     }
 
     .requirements-section > h1{
-        font-size: 30px;
+        font-size: 25px;
     }
 
     #requirements-text{
-        font-size: 2vh;
+        font-size: 15px;
+        margin-top: 20px;
     }
 
     #form-link{
-        margin: 20px 20px 0 20px;
+        margin: 40px;
         text-align: center;
     }
 
     #form-link > h1{
         font-size: 20px;
+    }
+
+    .footer{
+        font-size: 15px;
+    }
+
+    .sources-info{
+        width: auto;
+    }
+
+    .info{
+        flex-direction: column;
+        justify-content: center;
     }
 }

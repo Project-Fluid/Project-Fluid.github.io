@@ -5,9 +5,10 @@
 
 body{
     display: flex;
+    flex-direction: column;
     margin: 0;
     height: 100vh;
-    background: url(images/background-wall.jpg) no-repeat;
+    background: black;
 }
 
 body::-webkit-scrollbar{
@@ -26,26 +27,33 @@ body::-webkit-scrollbar{
 }
 
 .tab-bar{
-    position: absolute;
-    right: 4%;
-    top: 4%;
+    position: sticky;
+    top: 0;
+    padding: 26px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    background: rgba(3, 3, 3, 0.4);
 }
 
 .header{
     position: relative;
-    width: 100%;
+    width: auto;
     overflow: hidden;
     z-index: 3;
 }
 
+.branding{
+    width: 50px;
+    height: 18px;
+}
+
 .menu-icon{
-    visibility: hidden;
+    display: none;
 }
 
 .menu-btn{
-    visibility: hidden;
+    display: none;
 }
 
 .tabs{
@@ -76,12 +84,17 @@ body::-webkit-scrollbar{
 }
 
 .landing-page{
+    margin: 0;
+    background-color: #121212;
+    border-radius: 0 0 30px 30px;
+}
+
+.landing-info{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(18, 18, 18, 0.88);
+    width: 100%;
+    height: 85vh;
 }
 
 .lander-text{
@@ -122,12 +135,53 @@ body::-webkit-scrollbar{
     background-color:  rgba(114, 187, 255, 0.4);
 }
 
+.footer{
+    width: 100%;
+    font-family: Fluid-Sans, sans-serif;
+    color: white;
+}
+
+.footer-holder{
+    margin: 40px 10% 40px 10%;
+}
+
+.footer-holder > svg{
+    width: 65px;
+    height: 25px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.sources-info{
+    display: inline-block;
+    width: 50%;
+}
+
+.sources-info > ul{
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.sources-info > ul > li{
+    padding-top: 10px;
+}
+
+.sources-info > ul > li > a{
+    text-decoration: none;
+    color: #72BBFF;
+}
+
 /* Media Query */
 
 @media (max-width: 560px){
-    body{
-        background: url(images/background-mobile.png) no-repeat;
-        background-size: cover;
+
+    .branding{
+        display: none;
     }
 
     .menu-icon{
@@ -145,6 +199,7 @@ body::-webkit-scrollbar{
     }
        
     .header{
+        position: relative;
         display: grid;
         align-content: center;
     }
@@ -154,6 +209,11 @@ body::-webkit-scrollbar{
         top: 0;
         right: 0;
         flex-direction: column;
+        padding: 0;
+    }
+
+    .branding{
+        display: none;
     }
 
     /* Hamborger menu */
@@ -234,6 +294,10 @@ body::-webkit-scrollbar{
         top: 0;
     }
 
+    .landing-page{
+        border-radius: 0 0 20px 20px;
+    }
+
     .lander-text{
         height: 145px;
     }
@@ -252,5 +316,18 @@ body::-webkit-scrollbar{
         padding: 10px;
         font-size: 15px;
         border-radius: 10px;
+    }
+
+    .footer{
+        font-size: 15px;
+    }
+
+    .sources-info{
+        width: auto;
+    }
+
+    .info{
+        flex-direction: column;
+        justify-content: center;
     }
 }
