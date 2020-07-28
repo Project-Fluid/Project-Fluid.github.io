@@ -1,6 +1,15 @@
 @font-face{
     font-family: Fluid-Sans;
     src: url(fonts/FluidSans-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: Fluid-Sans;
+    src: url(fonts/FluidSans-Bold.ttf);
+    font-weight: 700;
+    font-style: bold;
 }
 
 body{
@@ -29,54 +38,31 @@ body::-webkit-scrollbar{
 .tab-bar{
     position: sticky;
     top: 0;
-    padding: 26px;
+    padding: 26px 60px 26px 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     background: rgba(3, 3, 3, 0.4);
 }
 
-.header{
-    position: relative;
-    width: auto;
-    overflow: hidden;
-    z-index: 3;
-}
-
-.branding{
-    width: 50px;
-    height: 18px;
-}
-
-.menu-icon{
-    display: none;
-}
-
-.menu-btn{
-    display: none;
-}
-
-.tabs{
-    display: flex;
-    flex-direction: row;
-    width: 300px;
-    padding: 0;
-    margin: 0;
-    justify-content: space-between;
-    font-family: Fluid-Sans, sans-serif;
-    font-size: medium;
-    color: white;
-    list-style-type: none;
-}
-
-.tabs > li >a{
-    text-decoration: none;
-    color: white;
-    transition: color 0.4s ease-in-out;
-}
-
-.tabs > li > a:hover{
+.back-btn{
     color: #72BBFF;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.back-btn > svg{
+    align-self: center;
+    width: 20px;
+    height: 20px;
+}
+
+.tab-bar > h3{
+    font-family: Fluid-Sans, sans-serif;
+    font-weight: bold;
+    color: #72BBFF;
+    font-size: 24px;
+    margin: 0;
 }
 
 .downloads-body{
@@ -89,39 +75,185 @@ body::-webkit-scrollbar{
 }
 
 .downloads-section{
-    margin: 100px 60px 100px 60px;
+    display: flex;
+    flex-direction: row;
+    margin: 40px 60px 50px 60px;
     font-family: Fluid-Sans, sans-serif;
     color: white;
 }
 
-.downloads-section > h1{
-    color: #72BBFF;
-}
-
-#textbox{
+.device-list{
+    height: 80vh;
     border: 3px solid #242424;
     box-sizing: border-box;
     border-radius: 16px;
-    line-height: 195%;
-    margin-top: 40px;
-    transition: background-color 0.4s ease-in-out;
+    max-width: 30%;
 }
 
-#textbox:hover{
+.device-name{
+    font-family: Fluid-Sans, sans-serif;
+    cursor: pointer;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 20px;
+    transition: background-color 0.2s ease-in;
+}
+
+.device-name:hover{
+    background-color: rgba(114, 187, 255, 0.15);
+}
+
+.device-name > h1{
+    font-size: 20px;
+    margin: 0;
+    color: #72BBFF;
+    font-weight: normal;
+}
+
+.device-name > h2{
+    font-size: 16px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.download-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    height: 80vh;
+    margin-left: 40px;
+    width: 70%;
+}
+
+.download-selection{
+    font-family: 'Roboto Mono', monospace;
+    font-size: large;
+    text-align: center;
+    color: white;
+}
+
+.download-card{
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+}
+
+.card{
+    margin-top: 20px;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+}
+
+.non-gapps{
+    margin-bottom: 40px;
+}
+
+.non-gapps > h1{
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.gapps > h1{
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    color: white;
+    padding: 18px;
+    width: 100%;
+    background-color: #121212;
+    border: 3px solid #242424;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: background-color 0.2s ease-in;
+}
+
+.collapsible:after {
+    content: '\02795';
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+  }
+  
+.active:after {
+    content: "\2796";
+}
+
+.version > span{
+    color: #72BBFF;
+}
+  
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.collapsible:hover {
     background-color: #242424;
 }
 
-#textbox > h2{
-    font-weight: normal;
-    margin: 40px 27px 40px 27px;
+.active{
+    background-color: #242424;
+    border-radius: 10px 10px 0 0;
+}
+  
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    border-radius: 0 0 10px 10px;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+    background-color: #242424;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    color: white;
 }
 
-#blue{
+.content > ul{
+    list-style-type: none;
+}
+
+.content > ul > li{
+    font-size: 14px;
+    margin-left: -40px;
+}
+
+.list-items{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: left;
+    margin-bottom: 10px;
+}
+
+.list-items > svg{
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.list-items > span{
+    margin: 5px 15px 5px 15px;
+}
+
+.list-items > span > a{
+    text-decoration: none;
     color: #72BBFF;
 }
 
-#rose{
-    color: red;
+.list-items > span > span{
+    color: rgba(255, 255, 255, 0.64);
 }
 
 .footer{
@@ -168,128 +300,67 @@ body::-webkit-scrollbar{
 /* Media Query */
 
 @media (max-width: 560px){
-
-    .branding{
-        display: none;
-    }
-
-    .menu-icon{
-        visibility: visible;
-    }
-
-    .menu-btn{
-        visibility: visible;
-    }
-
-    .header li a{
-        display: block;
-        padding: 20px 20px;
-        text-decoration: none;
-    }
-       
-    .header{
-        display: grid;
-        align-content: center;
-    }
-
     .tab-bar{
         width: 100%;
         top: 0;
         right: 0;
-        padding: 0;
-        flex-direction: column;
+        padding: 20px;
     }
 
-    /* Hamborger menu */
+    .tab-bar > h3{
+        font-size: 20px;
+    }
 
-    .header .tabs{
-        display: flex;
-        flex-direction: column;
-        float: right;
-        clear: both;
-        max-height: 0;
-        transition: max-height .2s ease-out;
-        font-size: small;
-        width: 100%;
+    .back-btn > svg {
+        width: 15px;
+        height: 15px;
     }
-       
-    /* Menu icon */
-       
-    .header .menu-icon{
-        cursor: pointer;
-        display: inline-block;
-        padding: 30px 22px;
-        position: relative;
-        user-select: none;
-    }
-       
-    .header .menu-icon .navicon{
-        background: #fff;
-        display: block;
-        height: 2px;
-        position: relative;
-        transition: background .2s ease-out;
-        width: 18px;
-    }
-       
-    .header .menu-icon .navicon:before,
-    .header .menu-icon .navicon:after{
-        background: #fff;
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        transition: all .2s ease-out;
-        width: 100%;
-    }
-       
-    .header .menu-icon .navicon:before{
-        top: 5px;
-    }
-       
-    .header .menu-icon .navicon:after{
-        top: -5px;
-    }
-       
-    /* Menu btn */
-       
-    .header .menu-btn{
-        display: none;
-    }
-       
-    .header .menu-btn:checked ~ .tabs{
-        max-height: 340px;
-    }
-       
-    .header .menu-btn:checked ~ .menu-icon .navicon{
-        background: transparent;
-      }
-       
-    .header .menu-btn:checked ~ .menu-icon .navicon:before{
-        transform: rotate(-45deg);
-    }
-       
-    .header .menu-btn:checked ~ .menu-icon .navicon:after{
-        transform: rotate(45deg);
-    }
-       
-    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after{
-        top: 0;
+
+    .device-list{
+        max-width: 100%;
+        height: auto;
+        max-height: 30vh;
     }
 
     .downloads-section{
-        margin: 20px 20px 0 20px;
+        flex-direction: column-reverse;
+        margin: 30px 20px 30px 20px;
     }
 
-    .downloads-section > h1{
-        font-size: 25px;
+    .download-list{
+        height: auto;
+        min-height: 40vh;
+        width: 100%;
+        margin-bottom: 30px;
+        margin-left: 0;
     }
 
-    #textbox{
+    .gapps h1, .non-gapps h1{
+        font-size: 20px;
+    }
+
+    .collapsible{
         font-size: 15px;
-        margin-top: 25px;
-        margin-bottom: 40px;
+        padding: 10px;
+    }
+
+    .card{
+        font-size: 12px;
+    }
+
+    .list-items > svg{
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
+    }
+
+    .list-items > span{
+        margin: 2px 15px 2px 15px; 
+    }
+
+    .content > ul > li{
+        font-size: 12px;
     }
 
     .footer{
