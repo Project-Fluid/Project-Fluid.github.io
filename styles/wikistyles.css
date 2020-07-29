@@ -18,6 +18,7 @@ body{
     margin: 0;
     height: 100vh;
     background: #000000;
+    cursor: default;
 }
 
 body::-webkit-scrollbar{

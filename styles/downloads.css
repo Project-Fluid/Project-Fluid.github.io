@@ -18,6 +18,7 @@ body{
     margin: 0;
     height: 100vh;
     background: black;
+    cursor: default;
 }
 
 body::-webkit-scrollbar{
@@ -174,23 +175,23 @@ body::-webkit-scrollbar{
     box-sizing: border-box;
     border-radius: 10px;
     font-size: 18px;
-    transition: background-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, border-radius 0.2s ease-out;
 }
 
-.collapsible:focus{
-    outline: 0;
-}
 
 .collapsible:after {
-    content: '\02795';
-    font-size: 13px;
-    color: white;
+    content: url(images/chevron-down.svg);
+    width: 24px;
+    height: 24px;
     float: right;
-    margin-left: 5px;
+    transition: transform 0.2s ease-in-out;
   }
   
 .active:after {
-    content: "\2796";
+    content: url(images/chevron-down.svg);
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
 }
 
 .version > span{
@@ -251,7 +252,7 @@ body::-webkit-scrollbar{
     color: #72BBFF;
 }
 
-.list-items > span > span{
+.list-items > span > a > span{
     color: rgba(255, 255, 255, 0.64);
 }
 
