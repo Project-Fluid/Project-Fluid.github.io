@@ -1,6 +1,15 @@
 @font-face{
     font-family: Fluid-Sans;
     src: url(fonts/FluidSans-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: Fluid-Sans;
+    src: url(fonts/FluidSans-Bold.ttf);
+    font-weight: 700;
+    font-style: bold;
 }
 
 body{
