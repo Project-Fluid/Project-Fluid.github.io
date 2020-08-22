@@ -317,11 +317,6 @@ body::-webkit-scrollbar{
         height: 60px;
     }
 
-    .subheader{
-        font-size: 11px;
-    }
-
-
     .download-button{
         padding: 10px;
         font-size: 15px;

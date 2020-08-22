@@ -315,7 +315,8 @@ body::-webkit-scrollbar{
     .device-list{
         max-width: 100%;
         height: auto;
-        max-height: 30vh;
+        max-height: 40vh;
+        overflow-y: auto;
     }
 
     .downloads-section{

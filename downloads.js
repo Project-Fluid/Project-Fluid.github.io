@@ -52,20 +52,12 @@ function downloadDisp( device ) {
 				devicesDownloadsID.innerHTML = '' + 
 				'<div class="download-card" id="download-selection">' +
 					'<div class="' + device + '">' +
-						'<h1 class="deviceinfo-name">' + deviceInfo.name + '</h1><br>' +
+						'<h1 class="deviceinfo-name">' + deviceInfo.name + '</h1>' +
 						'<h1>' + device + '</h1>' +
 						'<div class="card" id="' + version +'">' +
 							'<div class="collapsible"><div class="version"><span>' + version + '</span></div></div>' +
 								'<div class="content">' +
 									'<ul>' +
-										'<li>' +
-											'<div class="list-items">' +
-												'<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-													'<path d="M15 16.6666H11.6667V20H15V16.6666ZM21.6667 16.6666H18.3333V20H21.6667V16.6666ZM28.3333 16.6666H25V20H28.3333V16.6666ZM31.6667 4.99996H30V1.66663H26.6667V4.99996H13.3333V1.66663H10V4.99996H8.33333C6.48333 4.99996 5 6.49996 5 8.33329V31.6666C5 32.5507 5.35119 33.3985 5.97631 34.0236C6.60143 34.6488 7.44928 35 8.33333 35H31.6667C32.5507 35 33.3986 34.6488 34.0237 34.0236C34.6488 33.3985 35 32.5507 35 31.6666V8.33329C35 7.44924 34.6488 6.60139 34.0237 5.97627C33.3986 5.35115 32.5507 4.99996 31.6667 4.99996ZM31.6667 31.6666H8.33333V13.3333H31.6667V31.6666Z" fill="white"/>' +
-												'</svg>' +
-												'<span>' + 'Dropped: ' + deviceInfo.supported_versions[version].dropped + '</span>' +
-											'</div>' +
-										'</li>' +
 										'<li>' +
 											'<div class="list-items">' +
 												'<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
