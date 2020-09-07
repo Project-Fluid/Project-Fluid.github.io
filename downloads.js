@@ -3,7 +3,7 @@ var previousDevice
 var devicesData
 
 // Functions
-var getJSON = function(url, callback) {
+function getJSON(url, callback) {
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
 	xhr.responseType = 'json';
@@ -18,25 +18,36 @@ var getJSON = function(url, callback) {
 	xhr.send();
 };
 
+function fillDevicesList() {
+	var devicesListID = document.getElementById("device-list");
+	var devicesList = Object.keys(devicesData); // Get all device codenames
+	devicesList.forEach(function(deviceCodename) {
+	var deviceInfo = devicesData[deviceCodename]; // Get device specific infos
+	var devicesListdiv = document.createElement("div");
+	devicesListdiv.innerHTML = '<div class="device-name" id="' + deviceInfo.name + '" onclick="downloadDisp(' + "'" + deviceCodename + "'" + ')">' +
+									'<h1>' + deviceInfo.name + '</h1>' +
+									'<h2>' + deviceCodename + '</h2>' +
+								'</div>';
+	devicesListID.appendChild(devicesListdiv);
+	});
+};
 
-getJSON('https://raw.githubusercontent.com/Project-Fluid-Devices/official_devices/master/devices.json', function(err, data) {
-	if (err !== null) {
-		alert('Error parsing devices list\nError ' + err + '\nCheck your Internet connection and retry later, if that still persist, please contact Fluid team');
-	} else {
-		devicesData = data
-		var devicesListID = document.getElementById("device-list");
-		var devicesList = Object.keys( data ); // Get all device codenames
-		devicesList.forEach( function ( deviceCodename ) {
-		var deviceInfo = data[ deviceCodename ]; // Get device specific infos
-		var devicesListdiv = document.createElement("div");
-		devicesListdiv.innerHTML = '<div class="device-name" id="' + deviceInfo.name + '" onclick="downloadDisp(' + "'" + deviceCodename + "'" + ')">' +
-										'<h1>' + deviceInfo.name + '</h1>' +
-										'<h2>' + deviceCodename + '</h2>' +
-									'</div>';
-		devicesListID.appendChild(devicesListdiv);
-		});
-	}
-});
+function getDevicesJSON() {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'https://raw.githubusercontent.com/Project-Fluid-Devices/official_devices/master/devices.json', true);
+	xhr.responseType = 'json';
+	xhr.onload = function() {
+		var status = xhr.status;
+		if (status === 200) {
+			devicesData = xhr.response;
+			fillDevicesList()
+		} else {
+			alert('Error parsing devices JSON\nError ' + status + '\nCheck your Internet connection and retry later, if that still persist, please contact Fluid team');
+		};
+		devicesData = xhr.response;
+	};
+	xhr.send();
+};
 
 function downloadDisp( device ) {
 	var deviceInfo = devicesData[ device ]; // Get device specific infos
@@ -128,3 +139,5 @@ function downloadDisp( device ) {
 
 	document.getElementById('download-list').style.display = "block";
 }
+
+getDevicesJSON()
