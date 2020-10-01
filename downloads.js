@@ -1,6 +1,7 @@
 // Global variables
 var previousDevice
 var devicesData
+var months_arr = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 // Functions
 function getJSON(url, callback) {
@@ -18,6 +19,23 @@ function getJSON(url, callback) {
 	xhr.send();
 };
 
+function numberToOrdinal(n) {
+	if (n==0) {
+		return n;
+	}
+	var j = n % 10,
+		k = n % 100;
+	if (j == 1 && k != 11) {
+		return n + "st";
+	}
+	if (j == 2 && k != 12) {
+		return n + "nd";
+	}
+	if (j == 3 && k != 13) {
+		return n + "rd";
+	}
+	return n + "th";
+}
 function fillDevicesList() {
 	var devicesListID = document.getElementById("device-list");
 	var devicesList = Object.keys(devicesData); // Get all device codenames
@@ -70,6 +88,15 @@ function downloadDisp( device ) {
 			if (err !== null) {
 				alert('Error parsing version "' + version + '" of device "' + device + '"\nError ' + err + '\nCheck your Internet connection and retry later, if that still persist, please contact Fluid team');
 			} else {
+				// Parse date
+				var inputDate = new Date(data.datetime*1000);
+				var year = inputDate.getFullYear();
+				var month = months_arr[inputDate.getMonth()];
+				var day = inputDate.getDate();
+				var dayOrdinal = numberToOrdinal(day);
+				var parsedDate = dayOrdinal+' '+month+' '+year;
+
+				// Build HTML
 				var deviceVersionHTML = document.createElement('div');
 				deviceVersionHTML.innerHTML = '' + 
 					'<div class="card" id="' + version +'">' +
@@ -85,7 +112,7 @@ function downloadDisp( device ) {
 										'<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
 											'<path d="M15 16.6666H11.6667V20H15V16.6666ZM21.6667 16.6666H18.3333V20H21.6667V16.6666ZM28.3333 16.6666H25V20H28.3333V16.6666ZM31.6667 4.99996H30V1.66663H26.6667V4.99996H13.3333V1.66663H10V4.99996H8.33333C6.48333 4.99996 5 6.49996 5 8.33329V31.6666C5 32.5507 5.35119 33.3985 5.97631 34.0236C6.60143 34.6488 7.44928 35 8.33333 35H31.6667C32.5507 35 33.3986 34.6488 34.0237 34.0236C34.6488 33.3985 35 32.5507 35 31.6666V8.33329C35 7.44924 34.6488 6.60139 34.0237 5.97627C33.3986 5.35115 32.5507 4.99996 31.6667 4.99996ZM31.6667 31.6666H8.33333V13.3333H31.6667V31.6666Z" fill="white"/>' +
 										'</svg>' +
-										'<span>' + data.datetime + '</span>' +
+										'<span>' + parsedDate + '</span>' +
 									'</div>' +
 								'</li>' +
 								'<li>' +
