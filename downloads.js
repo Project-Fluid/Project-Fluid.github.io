@@ -36,6 +36,17 @@ function numberToOrdinal(n) {
 	}
 	return n + "th";
 }
+
+function makeid(length) {
+	var result = '';
+	var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	var charactersLength = characters.length;
+	for ( var i = 0; i < length; i++ ) {
+		result += characters.charAt(Math.floor(Math.random() * charactersLength));
+	}
+	return result;
+}
+
 function fillDevicesList() {
 	var devicesListID = document.getElementById("device-list");
 	var devicesList = Object.keys(devicesData); // Get all device codenames
@@ -97,10 +108,11 @@ function downloadDisp( device ) {
 				var parsedDate = dayOrdinal+' '+month+' '+year;
 
 				// Build HTML
+				var random_id = makeid(5);
 				var deviceVersionHTML = document.createElement('div');
 				deviceVersionHTML.innerHTML = '' + 
 					'<div class="card" id="' + version +'">' +
-						'<div class="collapsible">' +
+						'<div class="collapsible" id="' + random_id + '">' +
 							'<div class="version">' +
 								'<span>' + version + '</span>' +
 							'</div>' +
@@ -146,20 +158,17 @@ function downloadDisp( device ) {
 
 				deviceDownloadsTab.appendChild(deviceVersionHTML);
 
-				var coll = document.getElementsByClassName("collapsible");
-				var i;
+				var coll = document.getElementById(random_id);
 
-				for (i = 0; i < coll.length; i++) {
-					coll[i].addEventListener("click", function() {
-						this.classList.toggle("active");
-						var content = this.nextElementSibling;
-						if (content.style.maxHeight) {
-							content.style.maxHeight = null;
-						} else {
-							content.style.maxHeight = content.scrollHeight + "px";
-						}
-					});
-				}
+				coll.addEventListener("click", function() {
+					this.classList.toggle("active");
+					var content = this.nextElementSibling;
+					if (content.style.maxHeight) {
+						content.style.maxHeight = null;
+					} else {
+						content.style.maxHeight = content.scrollHeight + "px";
+					}
+				});
 			}
 		});
 	});
